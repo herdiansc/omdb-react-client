@@ -1,0 +1,7 @@
+{
+  "name": "OMDB API Client Application",
+  "short_name": "OMDB App",
+  "lang": "en-US",
+  "start_url": "/",
+  "display": "standalone"
+}
