@@ -17,4 +17,4 @@
 - Visit `http://localhost:8080` to view this app
 
 # License
-jQuery.columnFilter is licensed under the MIT License - see the LICENSE file for details
+OMDB API REACTJS is licensed under the MIT License - see the LICENSE file for details
