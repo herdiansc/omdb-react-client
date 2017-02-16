@@ -5,14 +5,6 @@ export default class AppContainer extends React.Component {
         super();
         this.state = {};
     };
-    
-    search() {
-        if (this.refs.q.value.length >= 3) {
-            fetch('http://www.omdbapi.com/?s=' + this.refs.q.value)
-                .then(result=>result.json())
-                .then(items=>this.setState(items));
-        }
-    }
 
     render() {
         return (
