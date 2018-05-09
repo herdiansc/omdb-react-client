@@ -9,10 +9,12 @@
 - Paginate movie list
 - View movie detail
 
-#How  to Use Install
+#How  to Install
 - Clone this repository
-- Execute `npm install` to install devendencies
+- Execute `cd omdb-react-client/` to enter app working directory
+- Execute `npm install` to install app devendencies
 - Execute `npm start` to start webpack
+- Visit `http://localhost:8080` to view this app
 
 # License
-jQuery.columnFilter is licensed under the MIT License - see the LICENSE file for details
+OMDB API REACTJS is licensed under the MIT License - see the LICENSE file for details
