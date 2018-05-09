@@ -8,7 +8,7 @@ export default class AppContainer extends React.Component {
     
     search() {
         if (this.refs.q.value.length >= 3) {
-            fetch('http://www.omdbapi.com/?s=' + this.refs.q.value)
+            fetch('http://www.omdbapi.com/?apikey=db07ce13&s=' + this.refs.q.value)
                 .then(result=>result.json())
                 .then(items=>this.setState(items));
         }
