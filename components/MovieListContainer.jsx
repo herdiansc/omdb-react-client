@@ -28,7 +28,7 @@ export default class MovieListContainer extends React.Component {
 
     loadData(q, page) {
         scroll(0,0);
-        fetch('http://www.omdbapi.com/?apikey=db07ce13&s=' + q + '&page=' + page)
+        fetch(`${ process.env.REACT_APP_OMDB_API }?apikey=${ process.env.REACT_APP_OMDB_SECRET }&s=${ q }&page=${page}`)
             .then(result=>result.json())
             .then(items=>this.setState(items));
     }

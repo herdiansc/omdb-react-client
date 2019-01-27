@@ -1,10 +1,10 @@
-const path = require('path');
+const Dotenv = require('dotenv-webpack');
 
 var config = {
    entry: __dirname + '/main.js',
 	
    output: {
-      path: path.join(__dirname, "dist"),
+      path: __dirname + '/',
       filename: 'bundle.js',
    },
 	
@@ -12,6 +12,10 @@ var config = {
       inline: true,
       port: 8080
    },
+
+   plugins: [
+      new Dotenv()
+   ],
 	
    module: {
       rules: [

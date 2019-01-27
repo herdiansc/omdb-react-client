@@ -17,7 +17,7 @@ export default class MovieDetailContainer extends React.Component {
     }
 
     componentWillMount() {
-        fetch(`http://www.omdbapi.com/?apikey=db07ce13&i=${ this.props.params.imdbID }&plot=full&r=json`) 
+        fetch(`${ process.env.REACT_APP_OMDB_API }?apikey=${ process.env.REACT_APP_OMDB_SECRET }&i=${ this.props.params.imdbID }&plot=full&r=json`) 
             .then(result=>result.json())
             .then(items=>this.setState(items));
     }

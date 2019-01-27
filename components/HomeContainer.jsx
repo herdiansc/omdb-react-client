@@ -9,7 +9,7 @@ export default class HomeContainer extends React.Component {
     search(e) {
         e.preventDefault();
         if (this.refs.q.value.length != 0) {
-            this.props.router.push('/movies?q=' + this.refs.q.value);
+            this.props.router.push(`/movies?q=${this.refs.q.value}`);
         }
     }
 

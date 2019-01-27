@@ -9,11 +9,12 @@
 - Paginate movie list
 - View movie detail
 
-## Run Demo
-- The demo can be found at `dist/` folder. 
-- To run this demo you just need to execute command `npm run demo` and visit `http://localhost:9000`
+## Demo
+- A transpiled js has been available at root project `bundle.js`
+- To run this demo, you don't need to have nodejs or npm
+- Just need to open `index.html` at your web browser
 
-## How  to Install
+## How to Start Dev Server
 - Clone this repository
 - Execute `cd omdb-react-client/` to enter app working directory
 - Execute `npm install` to install app devendencies
