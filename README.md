@@ -10,9 +10,8 @@
 - View movie detail
 
 ## Demo
-- A transpiled js has been available at root project `bundle.js`
-- To run this demo, you don't need to have nodejs or npm
-- Just need to open `index.html` at your web browser
+- To run the demo locally, just need to open `index.html` at your web browser, or
+- Visit https://herdiansc.github.io/omdb-react-client/
 
 ## How to Start Dev Server
 - Clone this repository
