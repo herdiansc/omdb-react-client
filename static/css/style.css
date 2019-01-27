@@ -2,9 +2,14 @@ main {
     margin-top: 3rem;
     ;
 }
+
+main .container-300 {
+  max-width: 300px;
+}
  
 main .card {
     margin-bottom: 2rem;
+    max-width: 300px;
 }
 
 @media only screen and (max-width: 768px) {
@@ -23,6 +28,8 @@ main .card {
 .page-title {
     font-size: 20px;
 }
+
+.read-more {text-align: center;}
 
 html {
   height: 100%;

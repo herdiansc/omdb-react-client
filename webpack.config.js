@@ -1,8 +1,10 @@
+const path = require('path');
+
 var config = {
-   entry: './main.js',
+   entry: __dirname + '/main.js',
 	
    output: {
-      path:'./',
+      path: path.join(__dirname, "dist"),
       filename: 'bundle.js',
    },
 	
@@ -12,14 +14,12 @@ var config = {
    },
 	
    module: {
-      loaders: [
+      rules: [
          {
-            test: /\.jsx?$/,
+            test: /\.(js|jsx)$/,
             exclude: /node_modules/,
-            loader: 'babel',
-				
-            query: {
-               presets: ['es2015', 'react']
+            use: {
+               loader: "babel-loader"
             }
          }
       ]

@@ -18,8 +18,6 @@ export default class MovieItemContainer extends React.Component {
 
     render() {
         return (
-            <div className="row">
-                <div className="col-lg-6">
                     <div className="card">
                         <div className="view overlay hm-white-slight">
                             { this.image() }
@@ -36,8 +34,6 @@ export default class MovieItemContainer extends React.Component {
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
         );
     }
 }

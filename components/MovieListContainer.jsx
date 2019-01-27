@@ -60,7 +60,7 @@ export default class MovieListContainer extends React.Component {
 
     render() {
         return (
-            <div className="container">
+            <div className="container container-300">
                 <div className="row search-form movie-list">
                     <div className="col-md-12">
                         <h2 className="page-title">Search</h2>

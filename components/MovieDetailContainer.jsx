@@ -24,7 +24,7 @@ export default class MovieDetailContainer extends React.Component {
 
     render() {
         return (
-            <div className="container">
+            <div className="container container-300">
                 <div className="row">
                     <div className="col-md-12">
                         <div className="search-form">
