@@ -9,6 +9,10 @@
 - Paginate movie list
 - View movie detail
 
+## Run Demo
+- The demo can be found at `dist/` folder. 
+- To run this demo you just need to execute command `npm run demo` and visit `http://localhost:9000`
+
 ## How  to Install
 - Clone this repository
 - Execute `cd omdb-react-client/` to enter app working directory
