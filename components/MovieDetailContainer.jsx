@@ -60,7 +60,7 @@ export default class MovieDetailContainer extends React.Component {
 
                                 <strong>IMDB Rating</strong>
                                 <hr />
-                                <p className="card-text">{ this.state.imdbRating }</p>
+                                <p className="card-text"><a href={ `https://www.imdb.com/title/${ this.state.imdbID }/` } target="_blank">{ this.state.imdbRating }</a> ({ this.state.imdbVotes } Votes)</p>
 
                                 <strong>Runtime</strong>
                                 <hr />
@@ -73,6 +73,14 @@ export default class MovieDetailContainer extends React.Component {
                                 <strong>Date Released</strong>
                                 <hr />
                                 <p className="card-text">{ this.state.Released }</p>
+
+                                <strong>Country (Language)</strong>
+                                <hr />
+                                <p className="card-text">{ this.state.Country } ({ this.state.Language })</p>
+
+                                <strong>Production</strong>
+                                <hr />
+                                <p className="card-text">{ this.state.Production }</p>
 
                                 <div className="read-more">
                                     <button onClick={ hashHistory.goBack } className='btn btn-default'>Back</button>
