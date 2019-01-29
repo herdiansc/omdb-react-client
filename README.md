@@ -1,4 +1,5 @@
 # OMDB API REACTJS
+![Code Size](https://img.shields.io/github/languages/code-size/herdiansc/omdb-react-client.svg)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 ## About
