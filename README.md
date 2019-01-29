@@ -10,8 +10,8 @@
 - View movie detail
 
 ## Demo
-- To run the demo locally, just need to open `index.html` at your web browser, or
-- Visit https://herdiansc.github.io/omdb-react-client/
+- To run the demo locally, just need to open `dist/index.html` at your web browser, or
+- Visit https://herdiansc.github.io/omdb-react-client/dist/
 
 ## How to Start Dev Server
 - Clone this repository
