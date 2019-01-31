@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { Link } from 'react-router';
-
 import MovieItemContainer from './MovieItemContainer.jsx';
+import PaginationContainer from './PaginationContainer.jsx';
+import SearchFormContainer from './SearchFormContainer.jsx';
 
 export default class MovieListContainer extends React.Component {
     constructor(props) {
@@ -34,45 +34,16 @@ export default class MovieListContainer extends React.Component {
             .then(items=>this.setState({items: items}));
     }
 
-    prevClick() {
-        this.page = Number(this.page) - 1;
-        this.loadData(this.props.location.query.q, this.page);
-    }
-
-    nextClick() {
-        this.page = Number(this.page) + 1;
-        this.loadData(this.props.location.query.q, this.page);
-    }
-
-    componentDidMount() {
-        this.refs.q.value = this.props.location.query.q;
-    }
-
-    pagination() {
-        return (
-            <div className="row pagination-container">
-                <nav className="row text-xs-center">
-                    { Number(this.page) > 1 ? <Link to={ `/movies?q=${this.props.location.query.q}&page=${ Number(this.page) - 1 }` } className="btn btn-sm btn-primary" onClick={this.prevClick.bind(this)}>Previous</Link> : null }
-                    <Link to={ `/movies?q=${this.props.location.query.q}&page=${ Number(this.page) + 1 }` } className="btn btn-sm btn-primary" onClick={this.nextClick.bind(this)}>Next</Link>
-                </nav>
-            </div>
-        );
-    }
-
     render() {
         return (
             <div className="container container-300">
                 <div className="row search-form movie-list">
-                    <div className="col-md-12">
-                        <h2 className="page-title">Search</h2>
-                        <input type="text" placeholder="Enter Movie Title..." ref="q" />
-                        <button className="btn btn-primary btn-sm" type="submit" onClick={this.search.bind(this)} >Submit</button>
-                    </div>
+                    <SearchFormContainer colClass={''} loadData={this.loadData} />
                 </div>
 
                 { this.state.items.Search ? this.state.items.Search.map((item, i) => <MovieItemContainer key={i} data={item} /> ) : '' }
 
-                { this.state.items.totalResults>10 ? this.pagination() : '' }
+                { this.state.items.totalResults>10 ? <PaginationContainer q={this.props.location.query.q} page={this.page} clickHandler={this.loadData} /> : '' }
             </div>
         );
     }
