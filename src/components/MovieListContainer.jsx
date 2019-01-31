@@ -7,7 +7,7 @@ import MovieItemContainer from './MovieItemContainer.jsx';
 export default class MovieListContainer extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {};
+        this.state = {items:[]};
         this.page = 1;
 
         this.loadData = this.loadData.bind(this);
@@ -27,10 +27,11 @@ export default class MovieListContainer extends React.Component {
     }
 
     loadData(q, page) {
+        this.page = page;
         scroll(0,0);
         fetch(`${ process.env.REACT_APP_OMDB_API }?apikey=${ process.env.REACT_APP_OMDB_SECRET }&s=${ q }&page=${page}`)
             .then(result=>result.json())
-            .then(items=>this.setState(items));
+            .then(items=>this.setState({items: items}));
     }
 
     prevClick() {
@@ -69,9 +70,9 @@ export default class MovieListContainer extends React.Component {
                     </div>
                 </div>
 
-                { this.state.Search ? this.state.Search.map((item, i) => <MovieItemContainer key={i} data={item} /> ) : '' }
+                { this.state.items.Search ? this.state.items.Search.map((item, i) => <MovieItemContainer key={i} data={item} /> ) : '' }
 
-                { this.state.totalResults>10 ? this.pagination() : '' }
+                { this.state.items.totalResults>10 ? this.pagination() : '' }
             </div>
         );
     }
