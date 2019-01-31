@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default class AppContainer extends React.Component {
+export default class AppComponent extends React.Component {
     constructor() {
         super();
         this.state = {};

@@ -7,7 +7,7 @@
   "scripts": {
     "demo": "http-server -p 9000",
     "start": "webpack-dev-server --hot --host 0.0.0.0 --mode development",
-    "build": "webpack  --mode production"
+    "build": "rm -f dist/main.* && webpack  --mode production"
   },
   "author": "",
   "license": "ISC",

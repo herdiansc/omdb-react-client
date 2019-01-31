@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Link } from 'react-router';
 
-export default class MovieItemContainer extends React.Component {
+export default class MovieItemComponent extends React.Component {
     constructor(props) {
         super(props);
         this.state = {};

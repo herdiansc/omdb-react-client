@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Link } from 'react-router';
 
-export default class PaginationContainer extends React.Component {
+export default class PaginationComponent extends React.Component {
     constructor(props) {
         super(props);
     };

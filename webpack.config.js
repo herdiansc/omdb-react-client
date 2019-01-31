@@ -4,7 +4,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 var config = {
-   entry: __dirname + '/src/main.js',
+   entry: __dirname + '/src/main.jsx',
 	
    output: {
       path: __dirname + '/dist',

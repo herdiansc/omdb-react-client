@@ -1,7 +1,7 @@
 import React from 'react';
-import SearchFormContainer from './SearchFormContainer.jsx';
+import SearchFormComponent from './SearchFormComponent.jsx';
 
-export default class HomeContainer extends React.Component {
+export default class HomeComponent extends React.Component {
     constructor(props) {
         super(props);
     };
@@ -10,7 +10,7 @@ export default class HomeContainer extends React.Component {
         return (
             <div className="container search-form-container">
                 <div className="row search-form">
-                    <SearchFormContainer colClass={'home'} />
+                    <SearchFormComponent colClass={'home'} />
                 </div>
             </div>
         );

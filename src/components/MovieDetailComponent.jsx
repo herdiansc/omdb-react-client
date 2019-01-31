@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Link, hashHistory } from 'react-router';
 
-export default class MovieDetailContainer extends React.Component {
+export default class MovieDetailComponent extends React.Component {
     constructor(props) {
         super(props);
         this.state = {};

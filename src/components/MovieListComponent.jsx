@@ -1,10 +1,10 @@
 import React from 'react';
 
-import MovieItemContainer from './MovieItemContainer.jsx';
-import PaginationContainer from './PaginationContainer.jsx';
-import SearchFormContainer from './SearchFormContainer.jsx';
+import MovieItemComponent from './MovieItemComponent.jsx';
+import PaginationComponent from './PaginationComponent.jsx';
+import SearchFormComponent from './SearchFormComponent.jsx';
 
-export default class MovieListContainer extends React.Component {
+export default class MovieListComponent extends React.Component {
     constructor(props) {
         super(props);
         this.state = {items:[]};
@@ -38,12 +38,12 @@ export default class MovieListContainer extends React.Component {
         return (
             <div className="container container-300">
                 <div className="row search-form movie-list">
-                    <SearchFormContainer colClass={''} loadData={this.loadData} />
+                    <SearchFormComponent colClass={''} loadData={this.loadData} />
                 </div>
 
-                { this.state.items.Search ? this.state.items.Search.map((item, i) => <MovieItemContainer key={i} data={item} /> ) : '' }
+                { this.state.items.Search ? this.state.items.Search.map((item, i) => <MovieItemComponent key={i} data={item} /> ) : '' }
 
-                { this.state.items.totalResults>10 ? <PaginationContainer q={this.props.location.query.q} page={this.page} clickHandler={this.loadData} /> : '' }
+                { this.state.items.totalResults>10 ? <PaginationComponent q={this.props.location.query.q} page={this.page} clickHandler={this.loadData} /> : '' }
             </div>
         );
     }
