@@ -6,7 +6,7 @@ import { connect } from "react-redux";
 import { getMovieDetail } from '../actions';
 
 const mapStateToProps = state => {
-  return { item: state.item, isLoading: state.isLoading };
+  return { item: state.item };
 };
 
 function mapDispatchToProps(dispatch) {
@@ -34,13 +34,13 @@ class MovieDetail extends React.Component {
 
     render() {
         return (
-            <div className="container container-300">
+            <div>
                 <div className="row">
                     <div className="col-md-12">
                         <div className="search-form">
                             <h2 className="page-title">Movie Detail</h2>
                         </div>
-                        { this.props.isLoading ? <div className="progress"><div className="indeterminate"></div></div> : '' }
+
                         <div className="card">
                             <div className="view overlay hm-white-slight">
                                 { this.image() }

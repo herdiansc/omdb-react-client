@@ -8,7 +8,7 @@ import { connect } from "react-redux";
 import { getMovieList } from '../actions';
 
 const mapStateToProps = state => {
-  return { page: state.page, items: state.items, isLoading: state.isLoading };
+  return { page: state.page, items: state.items };
 };
 
 function mapDispatchToProps(dispatch) {
@@ -29,16 +29,14 @@ class MovieList extends React.Component {
 
     render() {
         return (
-            <div className="container container-300">
+            <div>
                 <div className="row search-form movie-list">
                     <SearchFormComponent colClass={''} caller={'list-page'} />
                 </div>
-
-                { this.props.isLoading ? <div className="progress"><div className="indeterminate"></div></div> : '' }
                 
                 { this.props.items.Search.map((item, i) => <MovieItemComponent key={i} data={item} /> ) }
 
-                { this.props.items.totalResults>10 ? <PaginationComponent q={this.props.location.query.q} page={this.props.page} /> : '' }
+                <PaginationComponent q={this.props.location.query.q} page={this.props.page} />
             </div>
         );
     }
