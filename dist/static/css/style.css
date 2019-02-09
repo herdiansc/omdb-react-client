@@ -52,7 +52,7 @@ body {
 
 main {
   margin: 0 auto;
-  padding-top: 64px;
+  padding-top: 40px;
   max-width: 640px;
   width: 94%;
 }
@@ -99,14 +99,16 @@ hr {
 
 /* Progress Bar */
 .progress {
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
   height: 4px;
   display: block;
   width: 100%;
   background-color: #90caf9;
   border-radius: 2px;
   background-clip: padding-box;
-  margin: 0.5rem 0 1rem 0;
+  margin: 0 0 1rem 0;
   overflow: hidden; }
   .progress .determinate {
     position: absolute;
