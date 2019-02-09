@@ -1,8 +1,17 @@
 import React from 'react';
 
 import { withRouter } from 'react-router' ;
+import { connect } from "react-redux";
+import { getMovieList } from '../actions';
 
-class SearchFormComponent extends React.Component {
+function mapDispatchToProps(dispatch) {
+  return {
+    getMovieList: payload => dispatch(getMovieList(payload))
+  };
+}
+
+
+class SearchForm extends React.Component {
     constructor(props) {
         super(props);
     };
@@ -11,7 +20,7 @@ class SearchFormComponent extends React.Component {
         e.preventDefault();
         if (this.refs.q.value.length != 0) {
             this.props.router.push(`/movies?q=${this.refs.q.value}`);
-            if (this.props.loadData) this.props.loadData(this.refs.q.value, 1);
+            if (this.props.caller == 'list-page') this.props.getMovieList({q: this.refs.q.value, page: 1});
         }
     }
 
@@ -30,4 +39,6 @@ class SearchFormComponent extends React.Component {
     }
 }
 
+
+const SearchFormComponent = connect(null, mapDispatchToProps)(SearchForm);
 export default withRouter(SearchFormComponent);

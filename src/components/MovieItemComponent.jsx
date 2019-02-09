@@ -5,7 +5,6 @@ import { Link } from 'react-router';
 export default class MovieItemComponent extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {};
     };
 
     image() {

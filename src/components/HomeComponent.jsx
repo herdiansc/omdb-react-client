@@ -1,7 +1,7 @@
 import React from 'react';
 import SearchFormComponent from './SearchFormComponent.jsx';
 
-export default class HomeComponent extends React.Component {
+class HomeComponent extends React.Component {
     constructor(props) {
         super(props);
     };
@@ -16,3 +16,5 @@ export default class HomeComponent extends React.Component {
         );
     }
 }
+
+export default HomeComponent;

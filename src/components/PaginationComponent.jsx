@@ -2,17 +2,30 @@ import React from 'react';
 
 import { Link } from 'react-router';
 
-export default class PaginationComponent extends React.Component {
+import { connect } from "react-redux";
+import { getMovieList } from '../actions';
+
+const mapStateToProps = state => {
+  return { page: state.page };
+};
+
+function mapDispatchToProps(dispatch) {
+  return {
+    getMovieList: payload => dispatch(getMovieList(payload))
+  };
+}
+
+class Pagination extends React.Component {
     constructor(props) {
         super(props);
     };
 
     prevClick() {
-        this.props.clickHandler(this.props.q, Number(this.props.page) - 1);
+        this.props.getMovieList({q: this.props.q, page: Number(this.props.page) - 1});
     }
 
     nextClick() {
-        this.props.clickHandler(this.props.q, Number(this.props.page) + 1);
+        this.props.getMovieList({q: this.props.q, page: Number(this.props.page) + 1});
     }
 
     render() {
@@ -26,3 +39,6 @@ export default class PaginationComponent extends React.Component {
         );
     }
 }
+
+const PaginationComponent = connect(mapStateToProps, mapDispatchToProps)(Pagination);
+export default PaginationComponent;

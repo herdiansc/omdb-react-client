@@ -2,24 +2,34 @@ import React from 'react';
 
 import { Link, hashHistory } from 'react-router';
 
-export default class MovieDetailComponent extends React.Component {
+import { connect } from "react-redux";
+import { getMovieDetail } from '../actions';
+
+const mapStateToProps = state => {
+  return { item: state.item, isLoading: state.isLoading };
+};
+
+function mapDispatchToProps(dispatch) {
+  return {
+    getMovieDetail: payload => dispatch(getMovieDetail(payload))
+  };
+}
+
+class MovieDetail extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {};
     };
 
     image() {
-        if (!this.state.Poster || this.state.Poster != 'N/A') {
-            return <img src={ this.state.Poster } className="img-fluid" alt="" />
+        if (!this.props.item.Poster || this.props.item.Poster != 'N/A') {
+            return <img src={ this.props.item.Poster } className="img-fluid" alt="" />
         } else {
             return;
         }
     }
 
-    componentWillMount() {
-        fetch(`${ process.env.REACT_APP_OMDB_API }?apikey=${ process.env.REACT_APP_OMDB_SECRET }&i=${ this.props.params.imdbID }&plot=full&r=json`) 
-            .then(result=>result.json())
-            .then(items=>this.setState(items));
+    componentDidMount() {
+        this.props.getMovieDetail(this.props.params.imdbID);
     }
 
     render() {
@@ -30,57 +40,58 @@ export default class MovieDetailComponent extends React.Component {
                         <div className="search-form">
                             <h2 className="page-title">Movie Detail</h2>
                         </div>
+                        { this.props.isLoading ? <div className="progress"><div className="indeterminate"></div></div> : '' }
                         <div className="card">
                             <div className="view overlay hm-white-slight">
                                 { this.image() }
-                                <Link to={ `/detail/${this.state.imdbID}` }>
+                                <Link to={ `/detail/${this.props.item.imdbID}` }>
                                     <div className="mask"></div>
                                 </Link>
                             </div>
 
                             <div className="card-block">
-                                <h4 className="card-title">{ this.state.Title }</h4>
-                                <p className="card-text card-meta">Released: { this.state.Year }, Type: { this.state.Type }</p>
+                                <h4 className="card-title">{ this.props.item.Title }</h4>
+                                <p className="card-text card-meta">Released: { this.props.item.Year }, Type: { this.props.item.Type }</p>
                                 
                                 <strong>Plot</strong>
                                 <hr />
-                                <p className="card-text">{ this.state.Plot }</p>
+                                <p className="card-text">{ this.props.item.Plot }</p>
 
                                 <strong>Genre</strong>
                                 <hr />
-                                <p className="card-text">{ this.state.Genre }</p>
+                                <p className="card-text">{ this.props.item.Genre }</p>
 
                                 <strong>Director</strong>
                                 <hr />
-                                <p className="card-text">{ this.state.Director }</p>
+                                <p className="card-text">{ this.props.item.Director }</p>
 
                                 <strong>Actors</strong>
                                 <hr />
-                                <p className="card-text">{ this.state.Actors }</p>
+                                <p className="card-text">{ this.props.item.Actors }</p>
 
                                 <strong>IMDB Rating</strong>
                                 <hr />
-                                <p className="card-text"><a href={ `https://www.imdb.com/title/${ this.state.imdbID }/` } target="_blank">{ this.state.imdbRating }</a> ({ this.state.imdbVotes } Votes)</p>
+                                <p className="card-text"><a href={ `https://www.imdb.com/title/${ this.props.item.imdbID }/` } target="_blank">{ this.props.item.imdbRating }</a> ({ this.props.item.imdbVotes } Votes)</p>
 
                                 <strong>Runtime</strong>
                                 <hr />
-                                <p className="card-text">{ this.state.Runtime }</p>
+                                <p className="card-text">{ this.props.item.Runtime }</p>
 
                                 <strong>Rated</strong>
                                 <hr />
-                                <p className="card-text">{ this.state.Rated }</p>
+                                <p className="card-text">{ this.props.item.Rated }</p>
 
                                 <strong>Date Released</strong>
                                 <hr />
-                                <p className="card-text">{ this.state.Released }</p>
+                                <p className="card-text">{ this.props.item.Released }</p>
 
                                 <strong>Country (Language)</strong>
                                 <hr />
-                                <p className="card-text">{ this.state.Country } ({ this.state.Language })</p>
+                                <p className="card-text">{ this.props.item.Country } ({ this.props.item.Language })</p>
 
                                 <strong>Production</strong>
                                 <hr />
-                                <p className="card-text">{ this.state.Production }</p>
+                                <p className="card-text">{ this.props.item.Production }</p>
 
                                 <div className="read-more">
                                     <button onClick={ hashHistory.goBack } className='btn btn-default'>Back</button>
@@ -93,3 +104,6 @@ export default class MovieDetailComponent extends React.Component {
         );
     }
 }
+
+const MovieDetailComponent = connect(mapStateToProps, mapDispatchToProps)(MovieDetail);
+export default MovieDetailComponent;
