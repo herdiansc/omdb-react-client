@@ -1,3 +1,7 @@
+import {
+    START_FETCHING, SET_PAGE, SET_MOVIE_LIST, SET_MOVIE_DETAIL
+} from './constants';
+
 const initialState = {
   items: {Search: [], totalResults:0},
   page: 1,
@@ -6,7 +10,7 @@ const initialState = {
   q: '',
 };
 function rootReducer(state = initialState, action) {
-  if (action.type === 'SET_MOVIE_LIST') {
+  if (action.type === SET_MOVIE_LIST) {
   	return {
   		...state,
   		items: action.payload, 
@@ -14,7 +18,7 @@ function rootReducer(state = initialState, action) {
   	};
   }
 
-  if (action.type === 'SET_MOVIE_DETAIL') {
+  if (action.type === SET_MOVIE_DETAIL) {
   	return {
   		...state,
   		item: action.payload, 
@@ -22,14 +26,14 @@ function rootReducer(state = initialState, action) {
   	};
   }
 
-  if (action.type === 'START_FETCHING') {
+  if (action.type === START_FETCHING) {
   	return {
   		...state,
   		isLoading: true
   	};
   }
 
-  if (action.type === 'SET_PAGE') {
+  if (action.type === SET_PAGE) {
   	return {
   		...state,
   		page: action.payload
