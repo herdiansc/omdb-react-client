@@ -10,15 +10,10 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-
 class SearchForm extends React.Component {
-    constructor(props) {
-        super(props);
-    };
-
     search(e) {
         e.preventDefault();
-        if (this.refs.q.value.length != 0) {
+        if (this.refs.q.value.length != 0 && this.props.location.query.q != this.refs.q.value) {
             this.props.router.push(`/movies?q=${this.refs.q.value}`);
             if (this.props.caller == 'list-page') this.props.getMovieList({q: this.refs.q.value, page: 1});
         }

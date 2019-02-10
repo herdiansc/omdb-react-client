@@ -16,10 +16,6 @@ function mapDispatchToProps(dispatch) {
 }
 
 class MovieDetail extends React.Component {
-    constructor(props) {
-        super(props);
-    };
-
     image() {
         if (!this.props.item.Poster || this.props.item.Poster != 'N/A') {
             return <img src={ this.props.item.Poster } className="img-fluid" alt="" />

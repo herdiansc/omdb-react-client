@@ -25,7 +25,7 @@ var config = {
          filename: '[name].[hash].bundle.css'
       }),
       new CopyWebpackPlugin([
-         {from: __dirname + '/public/static', to: __dirname + '/dist/static'}
+         {from: __dirname + '/public', to: __dirname + '/dist'}
       ]),
       new Dotenv()
    ],

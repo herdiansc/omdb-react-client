@@ -16,10 +16,6 @@ function mapDispatchToProps(dispatch) {
 }
 
 class Pagination extends React.Component {
-    constructor(props) {
-        super(props);
-    };
-
     prevClick() {
         this.props.getMovieList({q: this.props.q, page: Number(this.props.page) - 1});
     }

@@ -2,10 +2,6 @@ import React from 'react';
 import SearchFormComponent from './SearchFormComponent.jsx';
 
 class HomeComponent extends React.Component {
-    constructor(props) {
-        super(props);
-    };
-
     render() {
         return (
             <div className="container search-form-container">

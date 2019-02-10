@@ -18,23 +18,25 @@ function mapDispatchToProps(dispatch) {
 }
 
 class MovieList extends React.Component {
-    constructor(props) {
-        super(props);
-        this.page = 1;
-    };
-
     componentDidMount() {
         this.props.getMovieList({q: this.props.location.query.q, page: this.props.page});
     }
 
     render() {
+        let movieList;
+        if (this.props.items.Search) {
+            movieList = this.props.items.Search.map((item, i) => <MovieItemComponent key={i} data={item} /> );
+        } else {
+            movieList = <div className="alert alert-info" role="alert">Not Found!</div> 
+        }
+
         return (
             <div>
                 <div className="row search-form movie-list">
                     <SearchFormComponent colClass={''} caller={'list-page'} />
                 </div>
                 
-                { this.props.items.Search.map((item, i) => <MovieItemComponent key={i} data={item} /> ) }
+                { movieList }
 
                 <PaginationComponent q={this.props.location.query.q} page={this.props.page} />
             </div>

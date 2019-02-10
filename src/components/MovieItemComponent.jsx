@@ -3,10 +3,6 @@ import React from 'react';
 import { Link } from 'react-router';
 
 export default class MovieItemComponent extends React.Component {
-    constructor(props) {
-        super(props);
-    };
-
     image() {
         if (!this.props.data.Poster || this.props.data.Poster != 'N/A') {
             return <img src={ this.props.data.Poster } className="img-fluid" alt="" />
