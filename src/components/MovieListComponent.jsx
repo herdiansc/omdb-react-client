@@ -8,13 +8,13 @@ import { connect } from "react-redux";
 import { getMovieList } from '../actions';
 
 const mapStateToProps = state => {
-  return { page: state.page, items: state.items };
+    return { page: state.page, items: state.items };
 };
 
-function mapDispatchToProps(dispatch) {
-  return {
-    getMovieList: payload => dispatch(getMovieList(payload))
-  };
+const mapDispatchToProps = dispatch => {
+    return {
+        getMovieList: payload => dispatch(getMovieList(payload))
+    };
 }
 
 class MovieList extends React.Component {

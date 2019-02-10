@@ -3,7 +3,7 @@ import React from 'react';
 import { connect } from "react-redux";
 
 const mapStateToProps = state => {
-  return { isLoading: state.isLoading };
+    return { isLoading: state.isLoading };
 };
 
 class ProgressBar extends React.Component {

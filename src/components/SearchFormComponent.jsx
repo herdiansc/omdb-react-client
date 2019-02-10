@@ -4,10 +4,10 @@ import { withRouter } from 'react-router' ;
 import { connect } from "react-redux";
 import { getMovieList } from '../actions';
 
-function mapDispatchToProps(dispatch) {
-  return {
-    getMovieList: payload => dispatch(getMovieList(payload))
-  };
+const mapDispatchToProps = dispatch => {
+    return {
+        getMovieList: payload => dispatch(getMovieList(payload))
+    };
 }
 
 class SearchForm extends React.Component {

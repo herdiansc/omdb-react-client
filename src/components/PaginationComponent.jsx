@@ -6,13 +6,13 @@ import { connect } from "react-redux";
 import { getMovieList } from '../actions';
 
 const mapStateToProps = state => {
-  return { items: state.items, page: state.page };
+    return { items: state.items, page: state.page };
 };
 
-function mapDispatchToProps(dispatch) {
-  return {
-    getMovieList: payload => dispatch(getMovieList(payload))
-  };
+const mapDispatchToProps = dispatch => {
+    return {
+        getMovieList: payload => dispatch(getMovieList(payload))
+    };
 }
 
 class Pagination extends React.Component {

@@ -6,13 +6,13 @@ import { connect } from "react-redux";
 import { getMovieDetail } from '../actions';
 
 const mapStateToProps = state => {
-  return { item: state.item };
+    return { item: state.item };
 };
 
-function mapDispatchToProps(dispatch) {
-  return {
-    getMovieDetail: payload => dispatch(getMovieDetail(payload))
-  };
+const mapDispatchToProps = dispatch => {
+    return {
+        getMovieDetail: payload => dispatch(getMovieDetail(payload))
+    };
 }
 
 class MovieDetail extends React.Component {
