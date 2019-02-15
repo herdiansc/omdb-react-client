@@ -3,7 +3,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 ## About
-**OMDB REACT CLIENT** is an api client to access omdb api. This client is built by reactjs.
+**OMDB REACT CLIENT** is an api client to access omdb api. This client was developed using reactjs.
 
 ## Features
 - Search movie by movie title
